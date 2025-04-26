@@ -10,7 +10,9 @@ namespace UAWalks.API.Mapper
         public AutoMapperProfile()
         {
             CreateMap<Region,RegionDto>().ReverseMap();
-           
+            CreateMap<Region, AddRegionRequestDto>().ReverseMap();
+            CreateMap<Region, UpdateRegionsRequestDto>().ReverseMap();
+
 
         }
     }

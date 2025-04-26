@@ -2,7 +2,7 @@
 
 namespace UAWalks.API.Model.DTO
 {
-    public class UpdateReionsRequestDto
+    public class UpdateRegionsRequestDto
     {
         [Required]
         [MaxLength(4, ErrorMessage = "Max lenght Code cannot more 4")]

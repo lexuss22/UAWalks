@@ -61,10 +61,11 @@ namespace UAWalks.API.Repository
         public async Task<Region?> DeleteAsync(Guid id)
         {
             var region = dbContext.Regions.FirstOrDefault(x => x.Id == id);
-           if (region == null)
-           {
+            if (region == null)
+            {
                 return null;
-           }
+            }
+
             dbContext.Regions.Remove(region);
             await dbContext.SaveChangesAsync();
             return region;
