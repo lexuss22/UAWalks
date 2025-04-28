@@ -71,7 +71,7 @@ namespace UAWalks.API.Controllers
         // PUT api/<RegionsController>/5
         [HttpPut]
         [Route("{id:guid}")]
-        public async Task<IActionResult> UpdateAsync([FromRoute]Guid id, [FromBody]UpdateRegionsRequestDto updateReionsRequestDto)
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateRegionsRequestDto updateReionsRequestDto)
         {
             //Mapping the DTO to Domain
             var regionDomain = mapper.Map<Region>(updateReionsRequestDto);

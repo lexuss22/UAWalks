@@ -23,13 +23,7 @@ namespace UAWalks.API.Repository
 
         public async Task<Region?> GetByIdAsync(Guid id)
         {
-            var region = await dbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
-            if (region == null)
-            {
-                return null;
-            }
-            return region;
-
+           return await dbContext.Regions.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Region> AddAsync(Region region)
@@ -53,6 +47,7 @@ namespace UAWalks.API.Repository
             existingRegion.Lat = region.Lat;
             existingRegion.Long = region.Long;
             existingRegion.Population = region.Population;
+
             await dbContext.SaveChangesAsync();
             return existingRegion;
         }
