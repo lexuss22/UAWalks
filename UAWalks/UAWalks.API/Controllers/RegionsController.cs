@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using UAWalks.API.Model.Domain;
@@ -52,6 +53,7 @@ namespace UAWalks.API.Controllers
 
         // POST api/<RegionsController>
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateAsync([FromBody]AddRegionRequestDto addRegionRequest)
         {
             //Mapping the DTO to Domain
@@ -92,14 +94,10 @@ namespace UAWalks.API.Controllers
         public async Task<IActionResult> DeleteAsync([FromRoute] Guid id)
         {
             var regionDomain = await regionRepository.DeleteAsync(id);
-            if (regionDomain == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                return Ok(mapper.Map<RegionDto>(regionDomain));
-            }
+
+            if (regionDomain == null) return NotFound();
+
+            return Ok(mapper.Map<RegionDto>(regionDomain));
         }
     }
 }

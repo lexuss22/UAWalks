@@ -12,6 +12,9 @@ namespace UAWalks.API.Mapper
             CreateMap<Region,RegionDto>().ReverseMap();
             CreateMap<Region, AddRegionRequestDto>().ReverseMap();
             CreateMap<Region, UpdateRegionsRequestDto>().ReverseMap();
+            CreateMap<Walk, WalkDto>().ReverseMap();
+            CreateMap<Walk, AddWalkRequestDto>().ReverseMap();
+            CreateMap<Walk, UpdateWalkRequestDto>().ReverseMap();
 
 
         }
